@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNest. Каталог книг</title>
+    <link rel="stylesheet" href="styles/base.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="header__logo">BookNest</a>
+        <nav>
+            <ul class="header__nav-list">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="book.html">Книга</a></li>
+                <li><a href="loan.html">Выдача</a></li>
+                <li><span>Избранное: <strong id="wishlist-counter">0</strong></span></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="main">
+        <h1>Каталог литературы</h1>
+
+        <form id="filter-form" class="form" style="max-width: 100%; margin-bottom: 1rem;">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <div class="form__group" style="flex: 1; min-width: 200px;">
+                    <label for="search-input">Поиск по названию или автору:</label>
+                    <input type="text" id="search-input" class="form__input" placeholder="Например: Лем, Солярис...">
+                </div>
+
+                <div class="form__group" style="min-width: 150px;">
+                    <label for="genre-select">Жанр:</label>
+                    <select id="genre-select" class="form__select">
+                        <option value="all">Все жанры</option>
+                        <option value="Фантастика">Фантастика</option>
+                        <option value="Антиутопия">Антиутопия</option>
+                        <option value="Классика">Классика</option>
+                        <option value="Ужасы">Ужасы</option>
+                        <option value="Детектив">Детектив</option>
+                    </select>
+                </div>
+
+                <div class="form__group" style="min-width: 180px;">
+                    <label for="sort-select">Сортировка:</label>
+                    <select id="sort-select" class="form__select">
+                        <option value="title-asc">По названию (А–Я)</option>
+                        <option value="year-desc">Сначала новые (год)</option>
+                        <option value="rating-desc">По рейтингу</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem; flex-wrap: wrap;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                    <input type="checkbox" id="available-checkbox"> Только доступные
+                </label>
+
+                <button type="button" id="reset-filters-btn" class="card__button" style="padding: 0.5rem 1rem; background-color: var(--color-text-muted);">Сбросить фильтры</button>
+                
+                <span id="books-count" style="margin-left: auto; font-weight: bold;">Найдено книг: 40</span>
+            </div>
+        </form>
+
+        <ul class="catalog-grid"></ul>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2026 BookNest</p>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNest. Каталог книг</title>
+    <link rel="stylesheet" href="styles/base.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="header__logo">BookNest</a>
+        <nav>
+            <ul class="header__nav-list">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="book.html">Книга</a></li>
+                <li><a href="loan.html">Выдача</a></li>
+                <li><span>Избранное: <strong id="wishlist-counter">0</strong></span></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="main">
+        <h1>Каталог литературы</h1>
+
+        <form id="filter-form" class="form" style="max-width: 100%; margin-bottom: 1rem;">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <div class="form__group" style="flex: 1; min-width: 200px;">
+                    <label for="search-input">Поиск по названию или автору:</label>
+                    <input type="text" id="search-input" class="form__input" placeholder="Например: Лем, Солярис...">
+                </div>
+
+                <div class="form__group" style="min-width: 180px;">
+                    <label for="sort-select">Сортировка:</label>
+                    <select id="sort-select" class="form__select">
+                        <option value="title-asc">По названию (А–Я)</option>
+                        <option value="year-desc">Сначала новые (год)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem; flex-wrap: wrap;">
+                <button type="button" id="reset-filters-btn" class="card__button" style="padding: 0.5rem 1rem; background-color: var(--color-text-muted);">Сбросить поиск</button>
+            </div>
+        </form>
+
+        <div id="loading-state" style="display: none; text-align: center; padding: 2rem; font-size: 1.2rem;">
+            <p>🔄 Загрузка данных с сервера Open Library...</p>
+        </div>
+
+        <div id="error-state" style="display: none; text-align: center; padding: 2rem; background: #ffe6e6; border-radius: 8px; margin-bottom: 1rem;">
+            <p id="error-message" style="color: #d9534f; font-weight: bold; margin-bottom: 1rem;">Произошла ошибка</p>
+            <button id="retry-btn" class="card__button" style="background-color: #d9534f; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer;">Повторить запрос</button>
+        </div>
+
+        <div id="empty-state" style="display: none; text-align: center; padding: 2rem; color: #666;">
+            <p>📚 Введите поисковый запрос (минимум 2 символа) или ничего не найдено.</p>
+        </div>
+
+        <div id="catalog-container" class="catalog-grid" style="display: grid;"></div>
+
+        <div class="pagination-controls" style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 2rem;">
+            <button id="prev-page" class="card__button" disabled>Назад</button>
+            <span id="page-indicator">Страница 1 из 1</span>
+            <button id="next-page" class="card__button" disabled>Вперед</button>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2026 BookNest</p>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

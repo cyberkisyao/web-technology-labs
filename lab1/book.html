@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Солярис - карточка книги.  BookNest</title>
+</head>
+<body>
+
+  <header>
+    <a href="index.html"><strong>BookNest</strong></a>
+    <nav aria-label="Основная навигация">
+      <ul>
+        <li><a href="index.html">Каталог</a></li>
+        <li><a href="book.html" aria-current="page">Карточка книги</a></li>
+        <li><a href="loan.html">Оформление выдачи</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <nav aria-label="Хлебные крошки">
+      <ol>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="index.html">Каталог</a></li>
+        <li><a href="book.html" aria-current="page">Солярис</a></li>
+      </ol>
+    </nav>
+
+    <article>
+      <h1>Солярис</h1>
+      
+      <figure>
+        <img src="images/solaris.jpg" alt="Обложка книги «Солярис» Станислава Лема" width="300" height="450">
+        <figcaption>Обложка первого издания книги</figcaption>
+      </figure>
+
+      <section aria-labelledby="specs-heading">
+        <h2 id="specs-heading">Характеристики издания</h2>
+        <dl>
+          <dt>Автор</dt>
+          <dd>Станислав Лем</dd>
+
+          <dt>Год издания</dt>
+          <dd><time datetime="1961">1961</time></dd>
+
+          <dt>Жанр</dt>
+          <dd>Научная фантастика</dd>
+
+          <dt>Количество страниц</dt>
+          <dd>224</dd>
+
+          <dt>ISBN</dt>
+          <dd>978-5-17-000000-1</dd>
+        </dl>
+      </section>
+
+      <section aria-labelledby="about-heading">
+        <h2 id="about-heading">Описание</h2>
+        <p>Фантастический роман Станислава Лема, описывающий взаимоотношения людей будущего с разумным Океаном планеты Солярис.</p>
+      </section>
+
+      <section aria-labelledby="reviews-heading">
+        <h2 id="reviews-heading">Отзывы читателей</h2>
+        <ul>
+          <li>
+            <article>
+              <h3>Иван С.</h3>
+              <p>Потрясающая книга.</p>
+              <p>Оценка: 5/5 (<time datetime="2026-09-15">15 сентября 2026</time>)</p>
+            </article>
+          </li>
+        </ul>
+
+        <section aria-labelledby="new-review-heading">
+          <h3 id="new-review-heading">Оставить отзыв</h3>
+          <form action="/reviews" method="post">
+            <div>
+              <label for="reviewer-name">Ваше имя:</label>
+              <input type="text" id="reviewer-name" name="name" required minlength="2" placeholder="Иван">
+            </div>
+            <div>
+              <label for="review-text">Текст отзыва:</label>
+              <textarea id="review-text" name="review" rows="4" required placeholder="Напишите ваше мнение о книге..."></textarea>
+            </div>
+            <button type="submit">Отправить отзыв</button>
+          </form>
+        </section>
+      </section>
+    </article>
+
+    <aside aria-labelledby="related-heading">
+      <h2 id="related-heading">Похожие книги</h2>
+      <ul>
+        <li><a href="book.html">Эдем (Станислав Лем)</a></li>
+        <li><a href="book.html">Непобедимый (Станислав Лем)</a></li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Универитетская библиотека BookNest.</p>
+  </footer>
+
+</body>
+</html>

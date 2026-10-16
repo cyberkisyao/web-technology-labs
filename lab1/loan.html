@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оформление выдачи книги BookNest</title>
+</head>
+<body>
+
+  <header>
+    <a href="index.html"><strong>BookNest</strong></a>
+    <nav aria-label="Основная навигация">
+      <ul>
+        <li><a href="index.html">Каталог</a></li>
+        <li><a href="book.html">Карточка книги</a></li>
+        <li><a href="loan.html" aria-current="page">Оформление выдачи</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Оформление заказа книги</h1>
+
+    <form action="/loans" method="post">
+      <fieldset>
+        <legend>Данные читателя и книги</legend>
+
+        <div>
+          <label for="reader-fio">ФИО студента/преподавателя:</label>
+          <input type="text" id="reader-fio" name="fio" required minlength="5" placeholder="Иванов Иван Иванович">
+        </div>
+
+        <div>
+          <label for="reader-email">Университетский Email:</label>
+          <input type="email" id="reader-email" name="email" required placeholder="student@vstu.kz">
+        </div>
+
+        <div>
+          <label for="book-select">Выберите книгу из каталога:</label>
+          <select id="book-select" name="book_id" required>
+            <option value="">Выберите книгу</option>
+            <option value="1">Солярис (Станислав Лем)</option>
+            <option value="2">1984 (Джордж Оруэлл)</option>
+            <option value="4">451 градус по Фаренгейту (Рэй Брэдбери)</option>
+            <option value="5">Дюна (Фрэнк Герберт)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="copies-count">Количество экземпляров:</label>
+          <input type="number" id="copies-count" name="copies" value="1" min="1" max="3" required>
+        </div>
+
+        <div>
+          <label for="issue-date">Желаемая дата получения:</label>
+          <input type="date" id="issue-date" name="issue_date" required>
+        </div>
+
+        <div>
+          <label for="comment-input">Примечания или пожелания:</label>
+          <textarea id="comment-input" name="comment" rows="3" maxlength="300" placeholder="Например: заберу в читальном зале..."></textarea>
+        </div>
+      </fieldset>
+
+      <button type="submit">Подтвердить выдачу</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Универитетская библиотека BookNest.</p>
+  </footer>
+
+</body>
+</html>
